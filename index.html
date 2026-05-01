@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta charset="utf-8" />
+<title>Achel Portfolio</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      fontFamily: { inter: ['Inter', 'sans-serif'] },
+      colors: {
+        accent: '#58aafc',
+        navy: '#080d2a',
+        'navy-light': '#0d114c',
+        'navy-mid': '#0f1948',
+      },
+      backgroundImage: {
+        'page-grad': 'linear-gradient(270deg,rgba(10,22,100,1) 12%,rgba(8,13,42,1) 37%,rgba(8,13,42,1) 90%)',
+        'nav-grad': 'linear-gradient(90deg,rgba(15,14,68,1) 0%,rgba(12,30,105,1) 100%)',
+      },
+    },
+  },
+}
+</script>
+<style>
+  body { font-family: 'Inter', sans-serif; }
+  html { scroll-behavior: smooth; }
+
+  /* Section badge */
+  .section-badge {
+    @apply inline-flex items-center justify-center px-8 py-2 rounded-full text-accent font-bold text-xl bg-[#0b3080]/50 shadow-[0_4px_4px_rgba(0,0,0,0.25)];
+  }
+
+  /* Skill tag */
+  .skill-tag {
+    @apply inline-flex items-center justify-center px-4 py-1.5 bg-[#9496ae] rounded-full text-black font-bold text-sm whitespace-nowrap;
+  }
+
+  /* Contact card hover */
+  .contact-card {
+    transition: transform 0.25s, box-shadow 0.25s;
+  }
+  .contact-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(88,170,252,0.35);
+  }
+</style>
+</head>
+<body class="bg-page-grad min-h-screen font-inter">
+
+<!-- NAV -->
+<header class="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-5xl">
+  <nav class="flex items-center justify-between px-6 py-3 rounded-[30px] shadow-[0_3px_0_#3aa3f3] bg-nav-grad">
+    <!-- Logo -->
+    <div class="flex items-center gap-1 text-white font-bold text-2xl select-none">
+      <img src="gambar/achel.jpeg" alt="Achel logo" class="w-10 h-10 rounded-full object-cover">
+      <span class="font-light">|</span><span class="font-extrabold">CHELL</span>
+    </div>
+    <!-- Desktop links -->
+    <ul class="hidden md:flex gap-6 list-none m-0 p-0">
+      <li><a href="#about"     class="text-white/80 hover:text-accent transition font-light text-sm">about me</a></li>
+      <li><a href="#education" class="text-white/80 hover:text-accent transition font-light text-sm">education</a></li>
+      <li><a href="#projects"  class="text-white/80 hover:text-accent transition font-light text-sm">Projects</a></li>
+      <li><a href="#skills"    class="text-white/80 hover:text-accent transition font-light text-sm">skills</a></li>
+      <li><a href="#contact"   class="text-white/80 hover:text-accent transition font-light text-sm">contact</a></li>
+    </ul>
+    <!-- Mobile hamburger -->
+    <button id="menuBtn" class="md:hidden text-white focus:outline-none" aria-label="Toggle menu">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
+  </nav>
+  <!-- Mobile menu -->
+  <div id="mobileMenu" class="hidden md:hidden mt-2 rounded-2xl bg-[#0d1460]/95 backdrop-blur px-6 py-4 flex-col gap-4">
+    <a href="#about"     class="block text-white/80 hover:text-accent py-1 text-sm font-light">about me</a>
+    <a href="#education" class="block text-white/80 hover:text-accent py-1 text-sm font-light">education</a>
+    <a href="#projects"  class="block text-white/80 hover:text-accent py-1 text-sm font-light">Projects</a>
+    <a href="#skills"    class="block text-white/80 hover:text-accent py-1 text-sm font-light">skills</a>
+    <a href="#contact"   class="block text-white/80 hover:text-accent py-1 text-sm font-light">contact</a>
+  </div>
+</header>
+
+<main class="pt-28 pb-0">
+
+  <!-- ===== ABOUT ===== -->
+  <section id="about" class="max-w-6xl mx-auto px-6 py-16 flex flex-col lg:flex-row items-center gap-12">
+    <!-- Left: text -->
+    <div class="flex-1 space-y-6">
+      <span class="inline-flex items-center gap-2 bg-accent text-black text-sm font-semibold px-5 py-1.5 rounded-full">
+        🚀 Available for Collaboration
+      </span>
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
+        <span class="text-white">Hi, i'm </span>
+        <span class="text-accent">Achel - Frontend Developer</span>
+      </h1>
+      <p class="text-white/70 text-base sm:text-lg leading-relaxed max-w-xl">
+        Software engineering technology student interested in web and artificial intelligence.
+        Focused on web development, UI, and building new websites for faster and more flexible work.
+        I build responsive and modern web interfaces. Currently, I am developing my skills to become
+        a professional web developer.
+      </p>
+    </div>
+
+    <!-- Right: profile card -->
+    <div class="w-full max-w-xs bg-navy-light rounded-[30px] overflow-hidden shadow-[inset_3px_3px_0_#1545ab,3px_3px_0_#2d4ddd] p-6 flex flex-col items-center gap-4">
+      <img src="gambar/achel.jpeg" alt="Portrait of Achel Silitonga"
+           class="w-44 h-44 rounded-full object-cover border-2 border-accent/40">
+      <div class="text-center">
+        <h2 class="text-white font-semibold text-xl">Achel Silitonga</h2>
+        <p class="text-white/60 text-sm mt-1">TRPL student | IT</p>
+      </div>
+      <div class="grid grid-cols-2 gap-3 w-full">
+        <div class="bg-[#a5a7b3] rounded-2xl p-3 text-center">
+          <p class="text-xs font-medium text-black">Location</p>
+          <p class="text-lg font-bold text-black">Batam</p>
+        </div>
+        <div class="bg-[#a5a7b3] rounded-2xl p-3 text-center">
+          <p class="text-xs font-medium text-black">Projects</p>
+          <p class="text-lg font-bold text-black">2+</p>
+        </div>
+        <div class="bg-[#a5a7b3] rounded-2xl p-3 text-center">
+          <p class="text-xs font-medium text-black">Status</p>
+          <p class="text-lg font-bold text-black">Learning</p>
+        </div>
+        <div class="bg-[#a5a7b3] rounded-2xl p-3 text-center">
+          <p class="text-xs font-medium text-black">Fokus</p>
+          <p class="text-lg font-bold text-black">ALL IN</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== EDUCATION ===== -->
+  <section id="education" class="py-20 px-6">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-4">
+        <h2 class="mx-auto w-fit rounded-full bg-[#0b3080]/60 px-8 py-2 text-center text-2xl font-bold text-[#00aeff] shadow-[0px_4px_4px_#00000040]">
+          Education
+        </h2>
+      </div>
+      <p class="text-center text-white/60 text-base mb-12">Educational background and current studies</p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <!-- Card 1 -->
+        <article class="rounded-xl p-6 shadow-[inset_3px_3px_0_#2d4ede,3px_3px_0_#2d4ede] bg-navy-light">
+          <h3 class="text-white font-bold text-xl">SMA N1 ULUAN</h3>
+          <p class="text-white/60 font-semibold mt-1">IPA | 2022-2025</p>
+        </article>
+        <!-- Card 2 -->
+        <article class="rounded-xl p-6 shadow-[inset_3px_3px_0_#2d4ede,3px_3px_0_#2d4ede] bg-navy-light">
+          <h3 class="text-white font-bold text-xl">POLITEKNIK NEGERI BATAM</h3>
+          <p class="text-white/60 font-semibold mt-1">TRPL | 2025-NOW</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROJECTS ===== -->
+  <section id="projects" class="py-20 px-6">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-4">
+        <h2 class="mx-auto w-fit rounded-full bg-[#0b3080]/60 px-8 py-2 text-center text-2xl font-bold text-[#00aeff] shadow-[0px_4px_4px_#00000040]">
+          Projects
+        </h2>
+      </div>
+      <p class="text-center text-white/60 text-base mb-12">some of the best projects I have ever worked on</p>
+
+      <!-- Slider wrapper -->
+      <div class="relative">
+        <!-- Project card (rendered by JS) -->
+        <div id="project-card" class="bg-[#4f5b91]/40 rounded-[30px] overflow-hidden p-6 sm:p-8 flex flex-col md:flex-row gap-8 items-center transition-opacity duration-300">
+          <!-- Image -->
+          <div class="w-full md:w-2/3 rounded-2xl overflow-hidden bg-white/10">
+            <img id="proj-img" src="" alt=""
+                 class="w-full h-56 sm:h-72 object-cover rounded-2xl">
+          </div>
+          <!-- Info -->
+          <div class="flex-1 space-y-3">
+            <p id="proj-tag" class="text-accent font-medium text-sm"></p>
+            <h3 id="proj-title" class="text-white font-bold text-3xl"></h3>
+            <p id="proj-desc" class="text-white/70 text-sm leading-relaxed"></p>
+            <!-- tech badges -->
+            <div id="proj-tech" class="flex flex-wrap gap-2 pt-1"></div>
+          </div>
+        </div>
+
+        <!-- Dot indicators -->
+        <div id="proj-dots" class="flex justify-center gap-2 mt-5"></div>
+
+        <!-- Prev / Next buttons -->
+        <button id="proj-prev" type="button" aria-label="Previous project"
+          class="absolute top-1/2 -translate-y-1/2 -left-5 w-11 h-11 rounded-full bg-accent text-black font-bold text-xl flex items-center justify-center shadow-lg hover:scale-110 transition">
+          &lt;
+        </button>
+        <button id="proj-next" type="button" aria-label="Next project"
+          class="absolute top-1/2 -translate-y-1/2 -right-5 w-11 h-11 rounded-full bg-accent text-black font-bold text-xl flex items-center justify-center shadow-lg hover:scale-110 transition">
+          &gt;
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SKILLS ===== -->
+  <section id="skills" class="py-20 px-6">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-4">
+        <h2 class="mx-auto w-fit rounded-full bg-[#0b3080]/60 px-8 py-2 text-center text-2xl font-bold text-[#00aeff] shadow-[0px_4px_4px_#00000040]">
+          Skills
+        </h2>
+      </div>
+      <p class="text-center text-white/60 text-base mb-12">Technologies and skills I have learned and developed</p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+        <!-- Programming -->
+        <article class="bg-navy-mid rounded-[30px] p-6 shadow-[4px_4px_0_#002eff]">
+          <h3 class="text-accent font-bold text-2xl text-center mb-5">programming</h3>
+          <div class="flex flex-wrap gap-2 justify-center">
+            <span class="skill-tag">HTML</span>
+            <span class="skill-tag">CSS</span>
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">PHP</span>
+            <span class="skill-tag">SQL</span>
+          </div>
+        </article>
+        <!-- Framework & tools -->
+        <article class="bg-navy-mid rounded-[30px] p-6 shadow-[4px_4px_0_#002eff]">
+          <h3 class="text-accent font-bold text-2xl text-center mb-5">framework &amp; tools</h3>
+          <div class="flex flex-wrap gap-2 justify-center">
+            <span class="skill-tag">VSCode</span>
+            <span class="skill-tag">Laravel</span>
+            <span class="skill-tag">GitHub</span>
+            <span class="skill-tag">Antigravity</span>
+            <span class="skill-tag">Figma</span>
+            <span class="skill-tag">Cursor</span>
+          </div>
+        </article>
+        <!-- Soft skills -->
+        <article class="bg-navy-mid rounded-[30px] p-6 shadow-[4px_4px_0_#002eff]">
+          <h3 class="text-accent font-bold text-2xl text-center mb-5">soft skills</h3>
+          <div class="flex flex-wrap gap-2 justify-center">
+            <span class="skill-tag">Teamwork</span>
+            <span class="skill-tag">Communication</span>
+            <span class="skill-tag">Problem Solving</span>
+            <span class="skill-tag">Time Management</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section id="contact" class="py-20 px-6">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-4">
+        <h2 class="mx-auto w-fit rounded-full bg-[#0b3080]/60 px-8 py-2 text-center text-2xl font-bold text-[#00aeff] shadow-[0px_4px_4px_#00000040]">
+          Contact
+        </h2>
+      </div>
+      <p class="text-center text-white/60 text-base mb-12">Let's connect! Find me on these platforms</p>
+
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-5">
+
+        <!-- Instagram -->
+        <a href="https://www.instagram.com/sunghoon_el?igsh=MTlod2NuaWZpb3Z5aQ==" aria-label="Instagram"
+           class="contact-card group flex flex-col items-center gap-3 p-6 rounded-2xl bg-navy-mid border border-white/10 hover:border-accent/50">
+          <div class="w-14 h-14 rounded-2xl flex items-center justify-center bg-gradient-to-br from-[#f09433] via-[#e6683c] via-[#dc2743] via-[#cc2366] to-[#bc1888] shadow-lg group-hover:scale-110 transition">
+            <!-- Instagram SVG -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+          </div>
+          <span class="text-white font-semibold text-sm group-hover:text-accent transition">Instagram</span>
+        </a>
+
+        <!-- GitHub -->
+        <a href="https://github.com/achel-silitonga" aria-label="GitHub"
+           class="contact-card group flex flex-col items-center gap-3 p-6 rounded-2xl bg-navy-mid border border-white/10 hover:border-accent/50">
+          <div class="w-14 h-14 rounded-2xl flex items-center justify-center bg-[#24292e] shadow-lg group-hover:scale-110 transition">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+            </svg>
+          </div>
+          <span class="text-white font-semibold text-sm group-hover:text-accent transition">GitHub</span>
+        </a>
+
+        <!-- WhatsApp -->
+        <a href="https://wa.me/+628994136270" aria-label="WhatsApp"
+           class="contact-card group flex flex-col items-center gap-3 p-6 rounded-2xl bg-navy-mid border border-white/10 hover:border-accent/50">
+          <div class="w-14 h-14 rounded-2xl flex items-center justify-center bg-[#25d366] shadow-lg group-hover:scale-110 transition">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+            </svg>
+          </div>
+          <span class="text-white font-semibold text-sm group-hover:text-accent transition">WhatsApp</span>
+        </a>
+
+        <!-- LinkedIn -->
+        <a href="https://www.linkedin.com/in/achel-silitonga-411446381?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" aria-label="LinkedIn"
+           class="contact-card group flex flex-col items-center gap-3 p-6 rounded-2xl bg-navy-mid border border-white/10 hover:border-accent/50">
+          <div class="w-14 h-14 rounded-2xl flex items-center justify-center bg-[#0077b5] shadow-lg group-hover:scale-110 transition">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z"/>
+            </svg>
+          </div>
+          <span class="text-white font-semibold text-sm group-hover:text-accent transition">LinkedIn</span>
+        </a>
+
+      </div>
+
+      <!-- Email CTA (bonus) -->
+      <div class="mt-10 text-center">
+        <a href="mailto:achelsilitonga54@gmail.com"
+           class="inline-flex items-center gap-2 px-8 py-3 rounded-full border border-accent text-accent font-semibold text-sm hover:bg-accent hover:text-black transition-all duration-300">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+          </svg>
+          Send me an Email
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="bg-black py-10 text-center text-white/50 text-sm">
+  © 2026 Achel Verawati Silitonga • Built with GitHub Pages
+</footer>
+
+<script>
+  // ── Mobile menu ──────────────────────────────────────────
+  const btn = document.getElementById('menuBtn');
+  const menu = document.getElementById('mobileMenu');
+  btn.addEventListener('click', () => menu.classList.toggle('hidden'));
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.classList.add('hidden')));
+
+  // ── Project Slider ────────────────────────────────────────
+  const projects = [
+    {
+      tag: 'PBL Project',
+      title: 'Ajukan Dokumen',
+      desc: 'Aplikasi pengajuan dokumen warga mencakup kelurahan secara digital. Memudahkan masyarakat mengurus surat-menyurat tanpa harus datang langsung ke kantor kelurahan.',
+      img: 'gambar/ajuk.jpeg',
+      alt: 'Preview of Ajukan Dokumen project',
+      tech: ['PHP', 'Laravel', 'MySQL', 'Tailwind CSS']
+    },
+    {
+      tag: 'PBL Project',
+      title: 'Equogreen',
+      desc: 'Platform manajemen pengadaan barang ramah lingkungan berbasis web. Dirancang untuk mempermudah alur procurement dari pemilihan vendor hingga persetujuan batch.',
+      img: 'gambar/equogreen.png',
+      alt: 'Preview of Equogreen project',
+      tech: ['HTML', 'CSS', 'JavaScript', 'Tailwind CSS']
+    }
+  ];
+
+  let current = 0;
+  const card      = document.getElementById('project-card');
+  const imgEl     = document.getElementById('proj-img');
+  const tagEl     = document.getElementById('proj-tag');
+  const titleEl   = document.getElementById('proj-title');
+  const descEl    = document.getElementById('proj-desc');
+  const techEl    = document.getElementById('proj-tech');
+  const dotsEl    = document.getElementById('proj-dots');
+
+  // Build dots
+  projects.forEach((_, i) => {
+    const dot = document.createElement('button');
+    dot.setAttribute('aria-label', `Go to project ${i + 1}`);
+    dot.className = 'w-2.5 h-2.5 rounded-full transition-all duration-300 ' + (i === 0 ? 'bg-accent scale-125' : 'bg-white/30');
+    dot.addEventListener('click', () => goTo(i));
+    dotsEl.appendChild(dot);
+  });
+
+  function updateDots() {
+    dotsEl.querySelectorAll('button').forEach((d, i) => {
+      d.className = 'w-2.5 h-2.5 rounded-full transition-all duration-300 ' + (i === current ? 'bg-accent scale-125' : 'bg-white/30');
+    });
+  }
+
+  function render(p) {
+    imgEl.src        = p.img;
+    imgEl.alt        = p.alt;
+    tagEl.textContent   = p.tag;
+    titleEl.textContent = p.title;
+    descEl.textContent  = p.desc;
+    techEl.innerHTML    = p.tech.map(t =>
+      `<span class="inline-flex items-center px-3 py-1 rounded-full bg-accent/20 text-accent text-xs font-semibold border border-accent/30">${t}</span>`
+    ).join('');
+  }
+
+  function goTo(index) {
+    card.style.opacity = '0';
+    setTimeout(() => {
+      current = (index + projects.length) % projects.length;
+      render(projects[current]);
+      updateDots();
+      card.style.opacity = '1';
+    }, 200);
+  }
+
+  // Init
+  render(projects[0]);
+
+  document.getElementById('proj-prev').addEventListener('click', () => goTo(current - 1));
+  document.getElementById('proj-next').addEventListener('click', () => goTo(current + 1));
+</script>
+</body>
+</html>
